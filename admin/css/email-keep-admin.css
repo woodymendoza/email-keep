@@ -28,7 +28,6 @@
   border-bottom: 10px solid #3c3e3c54 !important;
   background-color: #fff;
   border-collapse: collapse;
-  margin-top: 40px;
   margin-bottom: 40px;
   width: 100%;
 }
@@ -64,8 +63,13 @@
   width: 100px;
   padding: 5px;
   margin-right: 10px;
+  margin-bottom: -1.8px;
+  margin-left: .4px;
   float: left;
   background-color: #ddd;
+  border-radius: 10px 10px 0px 0px;
+  border: 2px solid #3c3e3c54;
+  border-bottom: 2px solid #4e982c;
 }
 
 .email-keep-nav div span{
@@ -79,8 +83,10 @@
 }
 
 .email-keep-nav div.active{
-  background-color: #00BCD4;
+  background-color: #56ab2f;
   color: #fff;
+  border-bottom: 2px solid #56ab2f;
+  margin-bottom: -8px !important;
 }
 
 .email-keep-nav div.active::before {
