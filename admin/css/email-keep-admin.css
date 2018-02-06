@@ -94,3 +94,23 @@
   height: 35px;
   margin-top: -2px;
 }
+
+.mail-keep .view{
+  background-color: #fff;
+  padding: 20px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.mail-keep .view span{
+  width: 45px;
+  display: block;
+  float: left;
+  font-weight: bold;
+}
+.mail-keep .view .message{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.fa-print{
+  float: right;
+}

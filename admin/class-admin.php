@@ -162,7 +162,7 @@ class Admin
         $submit_text = esc_attr__('Submit', 'email-keep');
 
         // View
-        require_once plugin_dir_path(dirname(__FILE__)).'admin/partials/view.php';
+        require_once plugin_dir_path(dirname(__FILE__)).'admin/partials/settings.php';
     }
 
     private function get_emails($type) {
@@ -178,14 +178,17 @@ class Admin
         return $emails;
     }
 
-    private function update_status(){
-        if (isset($_POST["action"]) && isset($_POST["selected_emails"])) {
+    private function update_status($values = null){
+
+        $values = ($values) ? $values : $_POST;
+
+        if (isset($values["action"]) && isset($values["selected_emails"])) {
             global $wpdb;
             $table_name = $wpdb->prefix . 'email_keep';
-            if ($_POST["action"] == 'deleted' && $_POST["type"] == 'deleted'){
-                $query = $wpdb->prepare("DELETE FROM " . $table_name . " WHERE `email_keep_id` IN  (" . implode(",", $_POST["selected_emails"]) . ")", array($_POST["action"]));
+            if ($values["action"] == 'deleted' && $values["type"] == 'deleted'){
+                $query = $wpdb->prepare("DELETE FROM " . $table_name . " WHERE `email_keep_id` IN  (" . implode(",", $values["selected_emails"]) . ")", array($values["action"]));
             } else {
-                $query = $wpdb->prepare("UPDATE " . $table_name . " SET status=%s WHERE `email_keep_id` IN  (" . implode(",", $_POST["selected_emails"]) . ")", array($_POST["action"]));
+                $query = $wpdb->prepare("UPDATE " . $table_name . " SET status=%s WHERE `email_keep_id` IN  (" . implode(",", $values["selected_emails"]) . ")", array($values["action"]));
             }
             $wpdb->query($query);
 
@@ -213,9 +216,13 @@ class Admin
     }
 
     /**
-     * Render the view using MVC pattern.
+     * Render the inbox view using MVC pattern.
      */
     public function keep_inbox() {
+
+        if (isset($_GET['view'])) {
+            return $this->read($_GET['view']);
+        }
 
         $this->update_status();
 
@@ -227,5 +234,30 @@ class Admin
         // View
         require_once plugin_dir_path(dirname(__FILE__)).'admin/partials/inbox.php';
     }
+
+
+    /**
+     * Render the read view using MVC pattern.
+     */
+    public function read($id) {
+
+        $values = [
+            'action' => 'read',
+            'selected_emails' => [$id],
+            'type' => 'new'
+        ];
+
+        $this->update_status($values);
+
+        // Model
+        global $wpdb;
+        $table_name = $wpdb->prefix . 'email_keep';
+        $query = $wpdb->prepare( "SELECT * FROM ".$table_name." WHERE `email_keep_id` = %d", array($id) );
+        $email = $wpdb->get_results($query)[0];
+
+        // View
+        require_once plugin_dir_path(dirname(__FILE__)).'admin/partials/read.php';
+    }
+
 
 }

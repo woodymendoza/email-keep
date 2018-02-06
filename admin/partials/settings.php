@@ -1,6 +1,5 @@
 <div class="wrap mail-keep">
-
-    <svg width="262px" height="48px" viewBox="0 0 262 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <svg width="199px" height="34px" viewBox="0 0 199 34" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
         <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
         <desc>Created with Sketch.</desc>
         <defs>
@@ -10,12 +9,10 @@
             </linearGradient>
         </defs>
         <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-            <g id="Group">
-                <text id="EMail-Keep" font-family="RobotoSlab-Regular, Roboto Slab" font-size="36" font-weight="normal" fill="#4A8505">
-                    <tspan x="69" y="38">EMail Keep</tspan>
-                </text>
-                <path d="M25.3574344,24.3238651 L2.22907122,48 L61.1565181,48 L38.4539775,24.2838817 L31.9866722,29.8195752 L25.3574344,24.3238651 Z M41.7625989,21.7709288 L63.7574344,44.6394002 C63.8833819,44.1955852 63.9733444,43.7357768 63.9733444,43.2499792 L63.9733444,3.72244898 L41.7625989,21.7709288 L41.7625989,21.7709288 Z M0,3.6304873 L0,43.2499792 C0,43.7357768 0.0899625156,44.1955852 0.215910037,44.6394002 L22.2847147,21.844898 L0,3.6304873 L0,3.6304873 Z M1.99916701,0 L31.9866722,24.0279883 L61.9741774,0 L1.99916701,0 Z" id="Fill-185" fill="url(#linearGradient-1)" fill-rule="nonzero"></path>
-            </g>
+            <text id="EMail-Keep" font-family="RobotoSlab-Regular, Roboto Slab" font-size="27" font-weight="normal" fill="#4A8505">
+                <tspan x="54" y="28">EMail Keep</tspan>
+            </text>
+            <path d="M17.961516,17.2294044 L1.57892545,34 L43.3192003,34 L27.2382341,17.2010829 L22.6572262,21.1221991 L17.961516,17.2294044 Z M29.5818409,15.4210746 L45.161516,31.6195752 C45.2507289,31.3052062 45.3144523,30.9795085 45.3144523,30.6354019 L45.3144523,2.63673469 L29.5818409,15.4210746 L29.5818409,15.4210746 Z M0,2.57159517 L0,30.6354019 C0,30.9795085 0.0637234486,31.3052062 0.152936277,31.6195752 L15.7850062,15.4734694 L0,2.57159517 L0,2.57159517 Z M1.41607663,0 L22.6572262,17.0198251 L43.8983757,0 L1.41607663,0 Z" id="Fill-185" fill="url(#linearGradient-1)" fill-rule="nonzero"></path>
         </g>
     </svg>
     <div id="poststuff">
