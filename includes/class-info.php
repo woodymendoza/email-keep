@@ -3,7 +3,7 @@
 namespace PLUGIN_NAME;
 
 /**
- * The class containing informatin about the plugin.
+ * The class containing information about the plugin.
  */
 class Info
 {
@@ -12,7 +12,7 @@ class Info
      *
      * @var string
      */
-    const SLUG = 'plugin-name';
+    const SLUG = 'email-keep';
 
     /**
      * The plugin version.
@@ -26,7 +26,7 @@ class Info
      *
      * @var string
      */
-    const OPTION_NAME = 'plugin_name_settings';
+    const OPTION_NAME = 'email_keep_settings';
 
     /**
      * The URL where your update server is located (uses wp-update-server).

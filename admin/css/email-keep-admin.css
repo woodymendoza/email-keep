@@ -1,0 +1,96 @@
+.mail-keep .metabox-holder input,
+.mail-keep .metabox-holder textarea {
+  width: 100%;
+  display: block;
+}
+
+.mail-keep .metabox-holder input {
+  max-width: 250px;
+}
+
+.mail-keep .metabox-holder textarea {
+  max-width: 500px;
+}
+
+.spinner {
+  float: left;
+  margin-top: 25px;
+  margin-left: 20px;
+}
+
+.mail-keep .submit-wrap .submit {
+  float: left;
+  padding-top: 0;
+}
+
+.email-keep .inbox{
+  border: 2px solid #3c3e3c54;
+  border-bottom: 10px solid #3c3e3c54 !important;
+  background-color: #fff;
+  border-collapse: collapse;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  width: 100%;
+}
+
+.email-keep .inbox th{
+  color: #fff;
+  text-align: left;
+  text-transform: uppercase;
+  padding: 10px;
+}
+
+.email-keep .inbox thead{
+  background: #56ab2f;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #a8e063, #56ab2f);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #a8e063, #56ab2f); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  border-bottom: 2px solid #3c3e3c54;
+}
+
+.email-keep .inbox td{
+  border-bottom: 2px solid #cccccc38;
+  background-color: #fff;
+  text-align: left;
+  text-transform: uppercase;
+  padding: 10px;
+}
+
+.email-keep-nav{
+  margin-top: 20px;
+  height: 1px;
+}
+
+.email-keep-nav div{
+  width: 100px;
+  padding: 5px;
+  margin-right: 10px;
+  float: left;
+  background-color: #ddd;
+}
+
+.email-keep-nav div span{
+  border: 1px solid #9E9E9E;
+  background-color: #9E9E9E;
+  color: #fff;
+  border-radius: 25px;
+  padding: 0px 2px 0px 2px;
+  float: right;
+
+}
+
+.email-keep-nav div.active{
+  background-color: #00BCD4;
+  color: #fff;
+}
+
+.email-keep-nav div.active::before {
+  content: "* ";
+}
+.email-keep-actions button{
+  height: 35px;
+
+}
+.email-keep-actions select{
+  height: 35px;
+  margin-top: -2px;
+}

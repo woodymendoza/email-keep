@@ -25,7 +25,7 @@ class Plugin
     private function load_dependencies() {
         require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-loader.php';
         require_once plugin_dir_path(dirname(__FILE__)) . 'admin/class-admin.php';
-        require_once plugin_dir_path(dirname(__FILE__)) . 'frontend/class-frontend.php';
+        require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-email-keep.php';
         $this->loader = new Loader();
     }
 
@@ -34,12 +34,16 @@ class Plugin
         $this->loader->add_action('admin_enqueue_scripts', $plugin_admin, 'assets');
         $this->loader->add_action('admin_init', $plugin_admin, 'register_settings');
         $this->loader->add_action('admin_menu', $plugin_admin, 'add_menus');
+        $this->define_shared_hooks('admin');
     }
 
     private function define_frontend_hooks() {
-        $plugin_frontend = new Frontend($this->plugin_slug, $this->version, $this->option_name);
-        $this->loader->add_action('wp_enqueue_scripts', $plugin_frontend, 'assets');
-        $this->loader->add_action('wp_footer', $plugin_frontend, 'render');
+        $this->define_shared_hooks('frontend');
+    }
+
+    private function define_shared_hooks($type){
+        $plugin = new EmailKeep($this->plugin_slug, $this->version, $this->option_name, $type);
+        $this->loader->add_filter('wp_mail', $plugin, 'mail_catch');
     }
 
     public function run() {

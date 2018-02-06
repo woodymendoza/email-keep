@@ -1,14 +1,14 @@
 <?php
 /**
- * Plugin Name:       WP Plugin Starter
- * Plugin URI:        http://example.com/plugin-name-uri/
- * Description:       This is a short description of what the plugin does. It's displayed in the WordPress admin area.
+ * Plugin Name:       Email Keep
+ * Plugin URI:        http://intricateweb.com
+ * Description:       Keep a copy of any email sent from the site. A perfect way to not lose important leads due to email delivery issues.
  * Version:           1.0
- * Author:            Your Name or Your Company
+ * Author:            IntricateWeb
  * Author URI:        http://example.com/
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
- * Text Domain:       plugin-name
+ * Text Domain:       email-keep
  * Domain Path:       /languages
  */
 

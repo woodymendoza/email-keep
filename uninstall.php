@@ -6,7 +6,7 @@ if (!defined('WP_UNINSTALL_PLUGIN')) {
 }
 
 // Delete options
-delete_option('plugin_name_settings');
+delete_option('email_keep_settings');
 
 // Delete options in Multisite
-delete_site_option('plugin_name_settings');
+delete_site_option('email_keep_settings');
