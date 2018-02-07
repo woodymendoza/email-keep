@@ -28,7 +28,9 @@ class EmailKeep
     public function mail_catch($args) {
         $location_check = $this->getLocation();
         if ( $this->settings['is-active'] == 'yes' && $this->settings['is-active-'.$this->type] == 'yes' && $location_check) {
-            $this->email_keep($args);
+            if ( $this->settings['keep-options'] == 'all' || ( $this->settings['keep-options'] == 'keyword' && $this->look_for_keyword($args['subject'], $this->settings['subject-keywords'])) ) {
+                $this->email_keep($args);
+            }
         }
         return $args;
     }
@@ -41,9 +43,19 @@ class EmailKeep
         return true;
     }
 
-    private function extract_email($string){
+    private function extract_email($string) {
         $pattern = '/[a-z0-9_\-\+]+@[a-z0-9\-]+\.([a-z]{2,3})(?:\.[a-z]{2})?/i';
         preg_match_all($pattern, $string, $matches);
         return (empty($matches[0]) || empty($matches[0][0])) ? 'System Sent' :  $matches[0][0];
+    }
+
+    private function look_for_keyword($subject, $keywords) {
+        $keywords = explode(",", $keywords);
+        foreach ($keywords as $keyword) {
+            if (strpos(strtolower($subject), strtolower(trim($keyword))) !== false) {
+                return true;
+            }
+        }
+        return false;
     }
 }
