@@ -9,3 +9,14 @@ Features:
  3. Ability to soft delete messages and also restore deleted messages
  
 ![enter image description here](https://d3vv6lp55qjaqc.cloudfront.net/items/1w2u0J283W1Q2p2v2k3Y/Screen%20Recording%202018-02-05%20at%2008.51%20PM.gif?X-CloudApp-Visitor-Id=2783412&v=41cc83f9)
+
+
+----------
+How to install
+
+ 1. Download the zip file by clicking [here](https://github.com/woodymendoza/email-keep/archive/master.zip)
+ 2. Login to your Wordpress site, click on plugins > add new and click on upload plugin on the top right.
+ 3. Click "choose file" and select zip file you downloaded on step 1.
+ 4. Click install.
+ 5. Click activate.
+
