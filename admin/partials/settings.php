@@ -1,6 +1,6 @@
 <div class="wrap mail-keep">
     <?php include 'header.php' ?>
-    <div id="poststuff">
+    <div id="poststuff" class="view">
         <div id="post-body" class="metabox-holder columns-2">
             <div id="post-body-content">
                 <form action="options.php" method="post">
