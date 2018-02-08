@@ -12,7 +12,7 @@
  * Domain Path:       /languages
  */
 
-namespace PLUGIN_NAME;
+namespace EMAIL_KEEP;
 
 // If this file is called directly, abort.
 if (!defined('WPINC')) {
@@ -30,18 +30,6 @@ function activation() {
     Activator::activate();
 }
 register_activation_hook(__FILE__, __NAMESPACE__ . '\\activation');
-
-/**
- * Check for updates.
- */
-//require_once plugin_dir_path(__FILE__) . 'includes/vendor/plugin-update-checker/plugin-update-checker.php';
-//$plugin_slug = Info::SLUG;
-//$update_url  = Info::UPDATE_URL;
-//$myUpdateChecker = \Puc_v4_Factory::buildUpdateChecker(
-//    $update_url . '?action=get_metadata&slug=' . $plugin_slug,
-//    __FILE__,
-//    $plugin_slug
-//);
 
 /**
  * Run the plugin.
