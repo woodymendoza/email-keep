@@ -5,7 +5,6 @@
         <a href="admin.php?page=email-keep%2Finbox&type=read" title="view read messages"><div <?php if ( $type == 'read' ) { ?> class="active" <?php } ?>>Read <span><?php echo $counts['read']; ?></span></div></a>
         <a href="admin.php?page=email-keep%2Finbox&type=deleted" title="view deleted messages"><div <?php if ( $type == 'deleted' ) { ?> class="active" <?php } ?>>Deleted <span><?php echo $counts['deleted']; ?></span></div></a>
     </div>
-
     <form class="email-keep-form" action="admin.php?page=email-keep%2Finbox&type=<?php echo $type; ?>" method="post">
         <input type="hidden" name="page" value="email-keep%2Finbox">
         <input type="hidden" name="type" value="<?php echo $type; ?>">
@@ -35,7 +34,6 @@
                 ?>
             </tbody>
             <tfoot>
-
             </tfoot>
         </table>
         <div class="email-keep-actions">
@@ -47,5 +45,4 @@
             <button type="submit">Update</button>
         </div>
     </form>
-
 </div>

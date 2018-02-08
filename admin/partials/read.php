@@ -1,9 +1,7 @@
 <div class="wrap mail-keep">
     <?php include 'header.php' ?>
     <div class="view">
-
                 <i class="fa fa-print fa-lg" onclick="javascript:window.print();"></i>
-
                <h2><?php echo $email->subject; ?></h2>
                <div><span>To: </span><?php echo $email->from; ?></div>
                <div><span>From: </span><?php echo $email->to; ?></div>
