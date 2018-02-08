@@ -29,13 +29,6 @@ class Info
     const OPTION_NAME = 'email_keep_settings';
 
     /**
-     * The URL where your update server is located (uses wp-update-server).
-     *
-     * @var string
-     */
-    const UPDATE_URL = 'https://example.com/';
-
-    /**
      * Retrieves the plugin title from the main plugin file.
      *
      * @return string The plugin title
