@@ -1,6 +1,6 @@
 <?php
 
-namespace PLUGIN_NAME;
+namespace EMAIL_KEEP;
 
 /**
  * Register all actions and filters for the plugin.

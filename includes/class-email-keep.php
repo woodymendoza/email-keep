@@ -1,6 +1,6 @@
 <?php
 
-namespace PLUGIN_NAME;
+namespace EMAIL_KEEP;
 
 class EmailKeep
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace PLUGIN_NAME;
+namespace EMAIL_KEEP;
 
 /**
  * The code used in the admin.
