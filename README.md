@@ -14,8 +14,8 @@ Features:
 ----------
 How to install
 
- 1. Download the zip file by clicking [here](https://github.com/woodymendoza/email-keep/archive/master.zip).
+ 1. Download the zip file by clicking [here](https://wordpress.org/plugins/email-keep/).
  2. Login to your Wordpress site, click on plugins > add new and click on upload plugin on the top left.
- 3. Click "choose file" and select zip file you downloaded on step 1.
+ 3. Click "choose file" and select zip file you downloaded on step 1 ( should be named email-keep.zip )
  4. Click install.
  5. Click activate.
