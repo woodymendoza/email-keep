@@ -31,10 +31,6 @@ Features:
 
 == Frequently Asked Questions ==
 
-= A question that someone might have =
-
-An answer to that question.
-
 = How can I access the saved emails? =
 
 Login as an admin to see them.
