@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="259px" height="231px" viewBox="0 0 259 231" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="background: #FFFFFF;">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>Artboard</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#B4EC51" offset="0%"></stop>
+            <stop stop-color="#429321" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard">
+            <text id="EMail-Keep" font-family="RobotoSlab-Regular, Roboto Slab" font-size="35" font-weight="normal" fill="#4A8505">
+                <tspan x="34" y="212">EMail Keep</tspan>
+            </text>
+            <path d="M107.06775,89.8041875 L34.0384375,164.563125 L220.105688,164.563125 L148.420938,89.6779375 L128,107.15725 L107.06775,89.8041875 Z M158.868125,81.743125 L228.31825,153.951812 C228.715937,152.550437 229,151.098562 229,149.564625 L229,24.753875 L158.868125,81.743125 L158.868125,81.743125 Z M27,24.4635 L27,149.564625 C27,151.098562 27.2840625,152.550437 27.68175,153.951812 L97.3654375,81.9766875 L27,24.4635 L27,24.4635 Z M33.3125,13 L128,88.8699375 L222.6875,13 L33.3125,13 Z" id="Fill-185" fill="url(#linearGradient-1)" fill-rule="nonzero"></path>
+        </g>
+    </g>
+</svg>
