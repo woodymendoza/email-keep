@@ -8,18 +8,19 @@ namespace EMAIL_KEEP;
 class Activator
 {
     /**
-     * Sets the default options in the options table on activation.
+     * Sets the default options in the options table on activation. 
      */
     public static function activate() {
 
         $option_name = INFO::OPTION_NAME;
-        if (empty(get_option($option_name))) {
-            $default_options = [
+        $previous_options = get_option($option_name);
+        if (empty($previous_options)) {
+            $default_options = array(
                 'is-active' => 'yes',
                 'is-active-frontend' => 'yes',
                 'is-active-admin' => 'yes',
                 'keep-options' => 'all'
-            ];
+            );
             update_option($option_name, $default_options);
         }
 

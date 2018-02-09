@@ -39,7 +39,7 @@ class EmailKeep
         global $wpdb;
         $table_name = $wpdb->prefix . 'email_keep';
         $from = $this->extract_email($args['message']);
-        $wpdb->insert( $table_name, [ 'to' => $args['to'], 'from' => $from, 'subject' => $args['subject'], 'message' => $args['message'], 'date' => current_time( 'mysql' ), 'type' => $this->type]);
+        $wpdb->insert( $table_name, array('to' => $args['to'], 'from' => $from, 'subject' => $args['subject'], 'message' => $args['message'], 'date' => current_time( 'mysql' ), 'type' => $this->type));
         return true;
     }
 

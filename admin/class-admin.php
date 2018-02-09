@@ -66,10 +66,10 @@ class Admin
     }
 
     public function assets() {
-        wp_enqueue_style( 'load-fa', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css', [], $this->version );
-        wp_enqueue_style( 'load-roboto', 'https://fonts.googleapis.com/css?family=Roboto+Slab', [], $this->version );
-        wp_enqueue_style($this->plugin_slug, plugin_dir_url(__FILE__).'css/email-keep-admin.css', [], $this->version);
-        wp_enqueue_script($this->plugin_slug, plugin_dir_url(__FILE__).'js/email-keep-admin.js', ['jquery'], $this->version, true);
+        wp_enqueue_style( 'load-fa', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css', array(), $this->version );
+        wp_enqueue_style( 'load-roboto', 'https://fonts.googleapis.com/css?family=Roboto+Slab', array(), $this->version );
+        wp_enqueue_style($this->plugin_slug, plugin_dir_url(__FILE__).'css/email-keep-admin.css', array(), $this->version);
+        wp_enqueue_script($this->plugin_slug, plugin_dir_url(__FILE__).'js/email-keep-admin.js', array('jquery'), $this->version, true);
     }
 
     public function register_settings() {
@@ -84,14 +84,14 @@ class Admin
             $plugin_name,
             'manage_options',
             $this->plugin_slug,
-            [$this, 'Keep_settings']
+            array($this, 'Keep_settings')
         );
         add_menu_page(
             'Email Keep Inbox',
             'Email Keep',
             'manage_options',
             $this->plugin_slug.'/inbox',
-            [$this, 'keep_inbox'],
+            array($this, 'keep_inbox'),
             'dashicons-email',
             60
         );
@@ -103,54 +103,54 @@ class Admin
     public function keep_settings() {
 
         // Generate the settings fields
-        $field_args = [
-            [
+        $field_args = array(
+             array(
                 'label'         => 'Is Active',
                 'slug'          => 'is-active',
                 'description'   => '',
                 'type'          => 'select',
-                'options'       =>  [
+                'options'       =>  array(
                                         'yes' => 'yes',
                                         'no'  => 'no'
-                                    ]
-            ],
-            [
+                                    )
+            ),
+            array(
                 'label'         => 'Keep Options',
                 'slug'          => 'keep-options',
                 'description'   => '',
                 'type'          => 'select',
-                'options'       =>  [
-                    'all' => 'keep all email',
-                    'keyword'  => 'keep all email with specific subject keyword(s)'
-                ]
-            ],
-            [
+                'options'       =>  array(
+                                        'all' => 'keep all email',
+                                        'keyword'  => 'keep all email with specific subject keyword(s)'
+                                    )
+            ),
+            array(
                 'label'        => 'Subject Keyword(s)',
                 'slug'         => 'subject-keywords',
                 'description'  => '',
                 'type'         => 'text'
-            ],
-            [
+            ),
+            array(
                 'label'         => 'Keep Emails sent via the front end',
                 'slug'          => 'is-active-frontend',
                 'description'   => 'Emails that are sent through the public facing side of your site. Like contact us or lead forms.',
                 'type'          => 'select',
-                'options'       =>  [
+                'options'       =>  array(
                                         'yes' => 'yes',
                                         'no'  => 'no'
-                                    ]
-            ],
-            [
+                                    )
+            ),
+            array(
                 'label'         => 'Keep Emails sent via the admin',
                 'slug'          => 'is-active-admin',
                 'description'   => 'Emails that are sent through the admin section.',
                 'type'          => 'select',
-                'options'       =>  [
+                'options'       =>  array(
                                         'yes' => 'yes',
                                         'no'  => 'no'
-                                    ]
-            ]
-        ];
+                                    )
+            )
+        );
 
         // Model
         $settings = $this->settings;
@@ -202,11 +202,11 @@ class Admin
         $query = "SELECT `status`, COUNT(*) as 'total' FROM ".$table_name." GROUP BY `status`";
         $totals = $wpdb->get_results($query);
 
-        $counts = [
+        $counts = array(
             'new' => 0,
             'read' => 0,
             'deleted' => 0
-        ];
+        );
 
         foreach ($totals as $total) {
             $counts[$total->status] = $total->total;
@@ -241,11 +241,11 @@ class Admin
      */
     public function read($id) {
 
-        $values = [
+        $values = array(
             'action' => 'read',
-            'selected_emails' => [$id],
+            'selected_emails' => array($id),
             'type' => 'new'
-        ];
+        );
 
         $this->update_status($values);
 
@@ -253,7 +253,8 @@ class Admin
         global $wpdb;
         $table_name = $wpdb->prefix . 'email_keep';
         $query = $wpdb->prepare( "SELECT * FROM ".$table_name." WHERE `email_keep_id` = %d", array($id) );
-        $email = $wpdb->get_results($query)[0];
+        $results = $wpdb->get_results($query);
+        $email = $results[0];
 
         // View
         require_once plugin_dir_path(dirname(__FILE__)).'admin/partials/read.php';
