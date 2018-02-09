@@ -4,7 +4,7 @@ Donate link: https://www.intricateweb.com/
 Tags: email, delivery, inbox, capture
 Requires at least: 4.6
 Tested up to: 4.9.4
-Stable tag: 1.0
+Stable tag: 1.1
 Requires PHP: 5.3.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -47,8 +47,12 @@ Login as an admin to see them.
 
 = 1.0 =
 * Initial version
+= 1.1 =
+* fix for readme
 
 == Upgrade Notice ==
 
 = 1.0 =
 Initial version of this plugin
+= 1.1 =
+* fix for readme

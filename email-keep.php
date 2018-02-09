@@ -3,7 +3,7 @@
  * Plugin Name:       Email Keep
  * Plugin URI:        http://intricateweb.com
  * Description:       Keep a copy of any email sent from the site. A perfect way to not lose important leads due to email delivery issues.
- * Version:           1.0
+ * Version:           1.1
  * Author:            IntricateWeb
  * Author URI:        http://example.com/
  * License:           GPL-2.0+
