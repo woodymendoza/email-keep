@@ -18,6 +18,7 @@ class Activator
                 'is-active' => 'yes',
                 'is-active-frontend' => 'yes',
                 'is-active-admin' => 'yes',
+                'keep-options' => 'all'
             ];
             update_option($option_name, $default_options);
         }
