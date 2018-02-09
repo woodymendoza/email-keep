@@ -17,7 +17,7 @@ class Activator
             $default_options = [
                 'is-active' => 'yes',
                 'is-active-frontend' => 'yes',
-                'is-active-admin' => 'no',
+                'is-active-admin' => 'yes',
             ];
             update_option($option_name, $default_options);
         }

@@ -1,7 +1,7 @@
 === Email Keep ===
 Contributors: intricateweb
 Donate link: https://www.intricateweb.com/
-Tags: email, delivery, inbox, capture
+Tags: email keep, email, delivery, inbox, capture
 Requires at least: 4.6
 Tested up to: 4.9.4
 Stable tag: 1.1
