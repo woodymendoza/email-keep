@@ -1,11 +1,11 @@
 <?php
 /**
  * Plugin Name:       Email Keep
- * Plugin URI:        http://intricateweb.com
+ * Plugin URI:        https://www.intricateweb.com/blog/email-keep-wordpress-plugin/
  * Description:       Keep a copy of any email sent from the site. A perfect way to not lose important leads due to email delivery issues.
  * Version:           1.1
  * Author:            IntricateWeb
- * Author URI:        http://example.com/
+ * Author URI:        https://www.intricateweb.com
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       email-keep
