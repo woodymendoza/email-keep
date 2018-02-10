@@ -1,4 +1,4 @@
-## E-Mail Keep - Wordpress Plugin
+## E-Mail Keep - Wordpress Plugin [![StyleCI](https://styleci.io/repos/120203796/shield?branch=master)](https://styleci.io/repos/120203796)
 
 Email keep is a Wordpress Plugin that will keep a copy of any emails sent by the website.  It provides you with the ability to retain those contact attempts that never got delivered to your inbox because of issues with your hosting configuration and or contact form bugs.  
 
