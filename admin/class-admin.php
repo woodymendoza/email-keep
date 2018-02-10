@@ -13,7 +13,8 @@ class Admin
     private $settings;
     private $settings_group;
 
-    public function __construct($plugin_slug, $version, $option_name) {
+    public function __construct($plugin_slug, $version, $option_name)
+    {
         $this->plugin_slug = $plugin_slug;
         $this->version = $version;
         $this->option_name = $option_name;
@@ -29,10 +30,11 @@ class Admin
      *
      * @return string The settings fields' HTML to be output in the view
      */
-    private function custom_settings_fields($field_args, $settings) {
+    private function custom_settings_fields($field_args, $settings)
+    {
         $output = '<p>Below are your global settings for this plugin</p>';
 
-        if ( $settings['is-active'] == 'no' ) {
+        if ($settings['is-active'] == 'no') {
             $output .= '<div class="notice notice-warning is-dismissible email-keep-msg" style="display: none;">
                         <p>This plugin is currently not active, you can activate it below. </p>
                     </div>';
@@ -50,12 +52,11 @@ class Admin
                 $output .= '<input type="text" id="'.$id.'" name="'.$setting.'" value="'.$settings[$slug].'">';
             } elseif ($field['type'] === 'textarea') {
                 $output .= '<p><textarea id="'.$id.'" name="'.$setting.'" rows="10">'.$settings[$slug].'</textarea></p>';
-            }
-            elseif ($field['type'] === 'select') {
+            } elseif ($field['type'] === 'select') {
                 $output .= '<p><select id="'.$id.'" name="'.$setting.'">';
-                foreach ($field['options'] as $key => $option){
-                        $selected = ($settings[$slug] == $key) ? 'selected' : '';
-                        $output .= '<option value="'.$key.'" '.$selected.'>'.$option.'</option>';
+                foreach ($field['options'] as $key => $option) {
+                    $selected = ($settings[$slug] == $key) ? 'selected' : '';
+                    $output .= '<option value="'.$key.'" '.$selected.'>'.$option.'</option>';
                 }
                 $output .= '</select></p>';
             }
@@ -65,18 +66,21 @@ class Admin
         return $output;
     }
 
-    public function assets() {
-        wp_enqueue_style( 'load-fa', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css', array(), $this->version );
-        wp_enqueue_style( 'load-roboto', 'https://fonts.googleapis.com/css?family=Roboto+Slab', array(), $this->version );
+    public function assets()
+    {
+        wp_enqueue_style('load-fa', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css', array(), $this->version);
+        wp_enqueue_style('load-roboto', 'https://fonts.googleapis.com/css?family=Roboto+Slab', array(), $this->version);
         wp_enqueue_style($this->plugin_slug, plugin_dir_url(__FILE__).'css/email-keep-admin.css', array(), $this->version);
         wp_enqueue_script($this->plugin_slug, plugin_dir_url(__FILE__).'js/email-keep-admin.js', array('jquery'), $this->version, true);
     }
 
-    public function register_settings() {
+    public function register_settings()
+    {
         register_setting($this->settings_group, $this->option_name);
     }
 
-    public function add_menus() {
+    public function add_menus()
+    {
         $plugin_name = Info::get_plugin_title();
         add_submenu_page(
             'options-general.php',
@@ -100,7 +104,8 @@ class Admin
     /**
      * Render the view using MVC pattern.
      */
-    public function keep_settings() {
+    public function keep_settings()
+    {
 
         // Generate the settings fields
         $field_args = array(
@@ -109,47 +114,47 @@ class Admin
                 'slug'          => 'is-active',
                 'description'   => '',
                 'type'          => 'select',
-                'options'       =>  array(
+                'options'       => array(
                                         'yes' => 'yes',
-                                        'no'  => 'no'
-                                    )
+                                        'no'  => 'no',
+                                    ),
             ),
             array(
                 'label'         => 'Keep Options',
                 'slug'          => 'keep-options',
                 'description'   => '',
                 'type'          => 'select',
-                'options'       =>  array(
-                                        'all' => 'keep all email',
-                                        'keyword'  => 'keep all email with specific subject keyword(s)'
-                                    )
+                'options'       => array(
+                                        'all'      => 'keep all email',
+                                        'keyword'  => 'keep all email with specific subject keyword(s)',
+                                    ),
             ),
             array(
                 'label'        => 'Subject Keyword(s)',
                 'slug'         => 'subject-keywords',
                 'description'  => '',
-                'type'         => 'text'
+                'type'         => 'text',
             ),
             array(
                 'label'         => 'Keep Emails sent via the front end',
                 'slug'          => 'is-active-frontend',
                 'description'   => 'Emails that are sent through the public facing side of your site. Like contact us or lead forms.',
                 'type'          => 'select',
-                'options'       =>  array(
+                'options'       => array(
                                         'yes' => 'yes',
-                                        'no'  => 'no'
-                                    )
+                                        'no'  => 'no',
+                                    ),
             ),
             array(
                 'label'         => 'Keep Emails sent via the admin',
                 'slug'          => 'is-active-admin',
                 'description'   => 'Emails that are sent through the admin section.',
                 'type'          => 'select',
-                'options'       =>  array(
+                'options'       => array(
                                         'yes' => 'yes',
-                                        'no'  => 'no'
-                                    )
-            )
+                                        'no'  => 'no',
+                                    ),
+            ),
         );
 
         // Model
@@ -165,47 +170,49 @@ class Admin
         require_once plugin_dir_path(dirname(__FILE__)).'admin/partials/settings.php';
     }
 
-    private function get_emails($type) {
+    private function get_emails($type)
+    {
         global $wpdb;
-        $table_name = $wpdb->prefix . 'email_keep';
-        $query = $wpdb->prepare( "SELECT * FROM ".$table_name." WHERE `status` = %s ORDER BY email_keep_id DESC", array($type) );
+        $table_name = $wpdb->prefix.'email_keep';
+        $query = $wpdb->prepare('SELECT * FROM '.$table_name.' WHERE `status` = %s ORDER BY email_keep_id DESC', array($type));
         $emails = $wpdb->get_results($query);
 
-        if($count){
+        if ($count) {
             return count($emails);
         }
 
         return $emails;
     }
 
-    private function update_status($values = null){
-
+    private function update_status($values = null)
+    {
         $values = ($values) ? $values : $_POST;
 
-        if (isset($values["action"]) && isset($values["selected_emails"])) {
+        if (isset($values['action']) && isset($values['selected_emails'])) {
             global $wpdb;
-            $table_name = $wpdb->prefix . 'email_keep';
-            if ($values["action"] == 'deleted' && $values["type"] == 'deleted'){
-                $query = $wpdb->prepare("DELETE FROM " . $table_name . " WHERE `email_keep_id` IN  (" . implode(",", $values["selected_emails"]) . ")", array($values["action"]));
+            $table_name = $wpdb->prefix.'email_keep';
+            if ($values['action'] == 'deleted' && $values['type'] == 'deleted') {
+                $query = $wpdb->prepare('DELETE FROM '.$table_name.' WHERE `email_keep_id` IN  ('.implode(',', $values['selected_emails']).')', array($values['action']));
             } else {
-                $query = $wpdb->prepare("UPDATE " . $table_name . " SET status=%s WHERE `email_keep_id` IN  (" . implode(",", $values["selected_emails"]) . ")", array($values["action"]));
+                $query = $wpdb->prepare('UPDATE '.$table_name.' SET status=%s WHERE `email_keep_id` IN  ('.implode(',', $values['selected_emails']).')', array($values['action']));
             }
             $wpdb->query($query);
-
         }
+
         return true;
     }
 
-    private function get_email_counts() {
+    private function get_email_counts()
+    {
         global $wpdb;
-        $table_name = $wpdb->prefix . 'email_keep';
-        $query = "SELECT `status`, COUNT(*) as 'total' FROM ".$table_name." GROUP BY `status`";
+        $table_name = $wpdb->prefix.'email_keep';
+        $query = "SELECT `status`, COUNT(*) as 'total' FROM ".$table_name.' GROUP BY `status`';
         $totals = $wpdb->get_results($query);
 
         $counts = array(
-            'new' => 0,
-            'read' => 0,
-            'deleted' => 0
+            'new'     => 0,
+            'read'    => 0,
+            'deleted' => 0,
         );
 
         foreach ($totals as $total) {
@@ -218,8 +225,8 @@ class Admin
     /**
      * Render the inbox view using MVC pattern.
      */
-    public function keep_inbox() {
-
+    public function keep_inbox()
+    {
         if (isset($_GET['view'])) {
             return $this->read($_GET['view']);
         }
@@ -235,30 +242,27 @@ class Admin
         require_once plugin_dir_path(dirname(__FILE__)).'admin/partials/inbox.php';
     }
 
-
     /**
      * Render the read view using MVC pattern.
      */
-    public function read($id) {
-
+    public function read($id)
+    {
         $values = array(
-            'action' => 'read',
+            'action'          => 'read',
             'selected_emails' => array($id),
-            'type' => 'new'
+            'type'            => 'new',
         );
 
         $this->update_status($values);
 
         // Model
         global $wpdb;
-        $table_name = $wpdb->prefix . 'email_keep';
-        $query = $wpdb->prepare( "SELECT * FROM ".$table_name." WHERE `email_keep_id` = %d", array($id) );
+        $table_name = $wpdb->prefix.'email_keep';
+        $query = $wpdb->prepare('SELECT * FROM '.$table_name.' WHERE `email_keep_id` = %d', array($id));
         $results = $wpdb->get_results($query);
         $email = $results[0];
 
         // View
         require_once plugin_dir_path(dirname(__FILE__)).'admin/partials/read.php';
     }
-
-
 }
