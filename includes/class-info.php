@@ -33,9 +33,11 @@ class Info
      *
      * @return string The plugin title
      */
-    public static function get_plugin_title() {
+    public static function get_plugin_title()
+    {
         $path = plugin_dir_path(dirname(__FILE__)).self::SLUG.'.php';
         $plugin_data = get_plugin_data($path);
+
         return $plugin_data['Name'];
     }
 }

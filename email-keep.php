@@ -9,7 +9,7 @@
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       email-keep
- * Domain Path:       /languages
+ * Domain Path:       /languages.
  */
 
 namespace EMAIL_KEEP;
@@ -20,22 +20,24 @@ if (!defined('WPINC')) {
 }
 
 // The class that contains the plugin info.
-require_once plugin_dir_path(__FILE__) . 'includes/class-info.php';
+require_once plugin_dir_path(__FILE__).'includes/class-info.php';
 
 /**
  * The code that runs during plugin activation.
  */
-function activation() {
-    require_once plugin_dir_path(__FILE__) . 'includes/class-activator.php';
+function activation()
+{
+    require_once plugin_dir_path(__FILE__).'includes/class-activator.php';
     Activator::activate();
 }
-register_activation_hook(__FILE__, __NAMESPACE__ . '\\activation');
+register_activation_hook(__FILE__, __NAMESPACE__.'\\activation');
 
 /**
  * Run the plugin.
  */
-function run() {
-    require_once plugin_dir_path(__FILE__) . 'includes/class-plugin.php';
+function run()
+{
+    require_once plugin_dir_path(__FILE__).'includes/class-plugin.php';
     $plugin = new Plugin();
     $plugin->run();
 }
